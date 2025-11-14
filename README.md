@@ -23,7 +23,7 @@ A web-based solution for restaurant ordering and management, built as a universi
 **Database:** MySQL
 **Machine Learning:** Scikit-learn
 
-## 👥 Team Members
+## Team Members
 - Hala Mohammed - Front-end
 - Shahd Hussien - Front-end 
 - Safia Hassan - Backend
