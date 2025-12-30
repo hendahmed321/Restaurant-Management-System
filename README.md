@@ -19,7 +19,7 @@ A web-based solution for restaurant ordering and management, built as a universi
 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Python
-- **Database:** SQL Server
+- **Database:** MySQL 
 
 ## Team Members
 - Hala Mohammed - Front-end
