@@ -17,9 +17,9 @@ A web-based solution for restaurant ordering and management, built as a universi
 
 ## Tech Stack
 
-**Frontend:** HTML, CSS, JavaScript
-**Backend:** Python
-**Database:** MySQL
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python
+- **Database:** SQL Server
 
 ## Team Members
 - Hala Mohammed - Front-end
