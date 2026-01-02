@@ -5,18 +5,15 @@ A web-based solution for restaurant ordering and management, built as a universi
 ## Features
 
 ### For Customers
-- Browse the digital menu with images
-- Place orders for delivery/pickup
+- Browse the menu
+- Place orders in cart
 - View order status
 
 ### For Restaurant Staff
 - Order management dashboard
-- Inventory tracking
 - Sales analytics
-- Kitchen display system
 
 ## Tech Stack
-
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Python
 - **Database:** SQL Server
