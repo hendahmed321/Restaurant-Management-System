@@ -11,7 +11,8 @@ A web-based solution for restaurant ordering and management, built as a universi
 
 ### For Restaurant Staff
 - Order management dashboard
-- Sales analytics
+- Update order status
+- Sales statistics
 
 ## Tech Stack
 - **Frontend:** HTML, CSS, JavaScript
