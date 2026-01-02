@@ -1,0 +1,473 @@
+@font-face {
+  font-family: Transcity;
+  src: url(./media/Transcity\ DEMO.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  background-color: #060c0e;
+  transition: all 0.25s ease-in-out;
+}
+
+::selection {
+  background-color: #d8b84d;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: #011922;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: #d8b84d;
+}
+
+.starters-section,
+.main-courses-section,
+.side-dishes-section,
+.desserts-section {
+  background-color: #0b1214;
+  color: #d8b84d;
+  padding-top: 128px;
+  padding-bottom: 96px;
+
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+}
+.starters-section {
+  padding-top: 228px;
+}
+.section-title {
+  font-size: 36px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
+.menu-img {
+  height: 750px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100px;
+  background-color: #060c0e;
+
+  padding: 0 5%;
+
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+
+  border-bottom: 1px solid #d8b84d;
+}
+
+.logo,
+header a {
+  height: 75px;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links a {
+  font-size: 24px;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 25px;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.nav-links li:first-child a {
+  padding-left: 0;
+}
+
+.nav-links li:last-child a {
+  padding-right: 0;
+}
+
+.nav-links a:hover {
+  color: #d8b84d;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.order-btn {
+  cursor: pointer;
+  width: 145px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid #d8b84d;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  font-size: 22px;
+  color: #fff;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.order-btn:hover {
+  color: #060c0e;
+  background-color: #d8b84d;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.menu-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 48px;
+}
+
+.menu-dish-name {
+  width: max-content;
+  text-transform: uppercase;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.menu-item {
+  width: 800px;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  align-items: center;
+  row-gap: 15px;
+  column-gap: 12px;
+
+  color: #d8b84d;
+}
+
+.hr-line {
+  height: 8px;
+  border-top: 1px solid #d8b84d;
+  border-bottom: 1px solid #d8b84d;
+  border-right: none;
+  border-left: none;
+}
+
+.menu-prices {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.menu-ingredients {
+  grid-column: span 3;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 350;
+  font-size: 18px;
+  color: #fff;
+}
+
+.main-courses-section,
+.desserts-section {
+  background-color: #060c0e;
+}
+
+.book-section {
+  background-color: #0b1214;
+  color: #d8b84d;
+  padding-top: 128px;
+  padding-bottom: 96px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.up-title {
+  font-family: "Playball", sans-serif;
+  font-size: 20px;
+}
+
+.book-section h2 {
+  margin-bottom: 64px;
+}
+
+.book-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 0 15%;
+}
+
+.input-name,
+.input-persons,
+.input-date,
+.input-time {
+  width: 250px;
+  height: 60px;
+  background-color: #060c0e;
+  border: 3px solid #212529;
+  padding: 15px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d8b84d;
+  cursor: text;
+  transition: all 0.25s ease-in-out;
+}
+
+.input-persons,
+.input-persons option {
+  cursor: pointer;
+}
+
+.input-name::placeholder {
+  color: #d8b84d;
+}
+
+.input-date::-webkit-calendar-picker-indicator {
+  background-image: url("./media/calendar-icon.svg");
+  width: 25px;
+  height: 25px;
+  padding: 25px 0px 25px 70px;
+  cursor: pointer;
+}
+
+.input-date::-webkit-datepicker-theme {
+  background-color: #0b1214;
+}
+
+.input-time::-webkit-calendar-picker-indicator {
+  background-image: url("./media/time-icon.svg");
+  width: 25px;
+  height: 25px;
+  padding: 25px 0px 25px 70px;
+  cursor: pointer;
+}
+
+.input-btn {
+  width: 250px;
+  height: 60px;
+  background-color: #060c0e;
+  border: 3px solid #d8b84d;
+  padding: 15px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #d8b84d;
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.input-name:focus,
+.input-persons:focus,
+.input-date:focus,
+.input-time:focus {
+  border: 3px solid #d8b84d;
+  outline: none;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.input-btn:hover {
+  background-color: #d8b84d;
+  color: #060c0e;
+
+  transition: all 0.25s ease-in-out;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 128px;
+  padding-bottom: 96px;
+
+  background-color: #060c0e;
+  color: #d8b84d;
+}
+
+.footer-logo {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 48px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  gap: 16px;
+  margin-bottom: 48px;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 350;
+}
+
+.email-anchor:link,
+.email-anchor:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.email-anchor:hover,
+.email-anchor:active {
+  text-decoration: underline;
+}
+
+.footer-icons-box {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 80px;
+}
+
+.facebook-icon,
+.x-icon,
+.instagram-icon {
+  fill: #d8b84d;
+  height: 40px;
+  width: 40px;
+  transition: all 0.25s ease-in-out;
+}
+
+.facebook-icon:hover,
+.x-icon:hover,
+.instagram-icon:hover {
+  fill: #fbde7c;
+  transition: all 0.25s ease-in-out;
+}
+
+.footer-made-by p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+
+.footer-heart {
+  fill: #d8b84d;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.footer-heart:hover {
+  transform: translateY(-6px) scale(1.2);
+  fill: #e64980;
+  transition: all 0.25s ease-in-out;
+}
+
+.footer-name:link,
+.footer-name:visited {
+  background-color: #d8b84d;
+  border-radius: 4px;
+  padding: 5px;
+
+  color: #0b1214;
+  font-weight: 700;
+
+  transition: all 0.25s ease-in-out;
+}
+
+.footer-name:hover,
+.footer-name:active {
+  background-color: #fbde7c;
+
+  transition: all 0.25s ease-in-out;
+}
+
+footer {
+  padding-bottom: 48px;
+}
+
+.go-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #011922;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.336);
+
+  bottom: 70px;
+  right: 70px;
+
+  animation-name: appear;
+  animation-timeline: scroll(y);
+}
+
+.go-up-arrow {
+  height: 20px;
+  width: 20px;
+
+  stroke: #d8b84d;
+  stroke-width: 1.5px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0%;
+    display: none;
+    position: fixed;
+  }
+
+  17% {
+    opacity: 0%;
+    display: none;
+  }
+
+  25% {
+    opacity: 100%;
+    display: flex;
+  }
+
+  100% {
+    opacity: 100%;
+    display: flex;
+    position: fixed;
+  }
+}

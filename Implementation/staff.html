@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Ombra d'Oro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/staff.css">
+    <link rel="icon" type="image/x-icon" href="./media/logo.png">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="staff-login-container" id="loginScreen">
+        <div class="staff-login-box">
+            <div class="staff-logo">
+                <img src="./media/logo.png" alt="Ombra d'Oro" style="height: 80px; margin-bottom: 24px;">
+                <h1 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 36px;">Ombra d'Oro</h1>
+                <p style="color: #ccc; margin-top: 8px; font-family: 'Raleway', sans-serif; font-size: 16px;">Staff Portal</p>
+            </div>
+            
+            <form id="staffLoginForm">
+                <div class="form-group">
+                    <label for="staffUsername">Username</label>
+                    <input type="text" id="staffUsername" placeholder="Enter username" required style="font-family: 'Josefin Sans', sans-serif;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="staffPassword">Password</label>
+                    <input type="password" id="staffPassword" placeholder="Enter password" required style="font-family: 'Josefin Sans', sans-serif;">
+                </div>
+                
+                <button type="submit" class="login-btn">LOGIN</button>
+                
+                <div id="loginError" style="color: #dc3545; text-align: center; margin-top: 16px; font-size: 14px;"></div>
+            </form>
+            
+            <div class="back-link">
+                <a href="./index.html" style="color: #d8b84d; text-decoration: none; font-family: 'Raleway', sans-serif; font-size: 14px;">← Back to Customer Site</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard (Hidden until login) -->
+    <div class="staff-dashboard" id="dashboard" style="display: none;">
+        <!-- Header -->
+        <header class="staff-header">
+            <div class="header-left">
+                <img src="./media/logo.png" alt="Logo" style="height: 48px;">
+                <div>
+                    <h1 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 24px;">Staff Dashboard</h1>
+                    <p id="staffInfo" style="color: #ccc; margin: 0; font-family: 'Raleway', sans-serif; font-size: 14px;"></p>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="time-display" id="currentTime" style="color: #ccc; font-family: 'Raleway', sans-serif; font-size: 14px;"></div>
+                <button id="logoutBtn" class="logout-btn">LOGOUT</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <button class="nav-btn active" data-section="orders">
+                        <span>Orders</span>
+                    </button>
+                    <button class="nav-btn" data-section="customers">
+                        <span>Customers</span>
+                    </button>
+                    <button class="nav-btn" data-section="stats">
+                        <span>Statistics</span>
+                    </button>
+                </nav>
+                
+                <div class="quick-stats">
+                    <h3 style="color: #d8b84d; font-family: 'Raleway', sans-serif; font-size: 16px; margin-bottom: 16px;">Quick Stats</h3>
+                    <div class="stat-item">
+                        <span>Pending Orders</span>
+                        <span id="pendingCount" style="color: #d8b84d; font-weight: bold;">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Today's Orders</span>
+                        <span id="todayCount" style="color: #d8b84d; font-weight: bold;">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Total Revenue</span>
+                        <span id="revenueCount" style="color: #d8b84d; font-weight: bold;">0€</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Orders Section -->
+                <section id="ordersSection" class="content-section active">
+                    <div class="section-header">
+                        <h2 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 30px;">Order Management</h2>
+                        <div class="section-actions">
+                            <button id="refreshOrders" class="action-btn">🔄 Refresh</button>
+                            <select id="statusFilter" class="filter-select">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="preparing">Preparing</option>
+                                <option value="ready">Ready</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="orders-table-container">
+                        <div id="ordersTable"></div>
+                    </div>
+                </section>
+
+                <!-- Menu Section -->
+                <section id="menuSection" class="content-section">
+                    <div class="section-header">
+                        <h2 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 30px;">Menu Management</h2>
+                        <button id="addMenuItem" class="action-btn">＋ Add Item</button>
+                    </div>
+                    
+                    <div id="menuItemsContainer"></div>
+                </section>
+
+                <!-- Customers Section -->
+                <section id="customersSection" class="content-section">
+                    <div class="section-header">
+                        <h2 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 30px;">Customers</h2>
+                    </div>
+                    
+                    <div id="customersContainer"></div>
+                </section>
+
+                <!-- Statistics Section -->
+                <section id="statsSection" class="content-section">
+                    <div class="section-header">
+                        <h2 style="font-family: 'Playfair Display', serif; color: #d8b84d; margin: 0; font-size: 30px;">Statistics</h2>
+                    </div>
+                    
+                    <div id="statsContainer"></div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification -->
+    <div id="staffNotification" class="notification"></div>
+
+    <script src="./js/staff.js"></script>
+</body>
+</html>
